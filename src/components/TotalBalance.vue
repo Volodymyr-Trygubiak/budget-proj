@@ -33,10 +33,4 @@ export default {
   padding: 20px;
   text-align: center;
 }
-.more {
-  color: #1cca47;
-}
-.less {
-  color: #ff0000;
-}
 </style>

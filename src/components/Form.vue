@@ -43,6 +43,9 @@ export default {
   methods: {
     onSubmit() {
       this.$refs.addItemForm.validate(valid => {
+        if(this.formData.type === "OUTCOME") {
+          this.formData.value = this.formData.value * -1
+        }
         if (valid) {
           this.$emit("submitForm", { ...this.formData });
           this.$refs.addItemForm.resetFields();

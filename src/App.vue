@@ -40,7 +40,7 @@ export default {
   computed: {
     totalBalance() {
       return Object.values(this.list).reduce(
-        (acc, item) => item.type === "INCOME" ? acc + item.value : acc - item.value,
+        (acc, item) => acc + item.value,
         0
       );
     }
@@ -55,7 +55,6 @@ export default {
         ...data,
         id: String(Math.random())
       };
-
       this.$set(this.list, newObj.id, newObj);
     }
   }
@@ -70,5 +69,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.more {
+  color: #1cca47;
+}
+.less {
+  color: #ff0000;
 }
 </style>

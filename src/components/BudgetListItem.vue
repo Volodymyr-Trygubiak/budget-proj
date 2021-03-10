@@ -1,11 +1,16 @@
 <template >
   <div class="list-item">
-    <span class="budget-comment">{{ item.comment }}</span>
-    <span class="budget-value">{{ item.value }}</span>
+    <span class="budget-comment"
+      >{{ item.comment }} <i :class="itemIcon"></i
+    ></span>
+    <span class="budget-value" :class="valueColor">{{ item.value }}</span>
     <ElButton type="danger" size="mini" @click="dialogVisible = true">
       Delete
     </ElButton>
-    <ElDialog title="Do you want delete this value?" :visible.sync="dialogVisible">
+    <ElDialog
+      title="Do you want delete this value?"
+      :visible.sync="dialogVisible"
+    >
       <span class="value">{{ item.value }}</span>
       <span slot="footer" class="dialog-footer">
         <el-button
@@ -38,6 +43,28 @@ export default {
     return {
       dialogVisible: false,
     };
+  },
+
+  computed: {
+    itemIcon() {
+      if (this.item.value > 0) {
+        return "el-icon-top";
+      } else if (this.item.value < 0) {
+        return "el-icon-bottom";
+      } else {
+        return "";
+      }
+    },
+    valueColor() {
+      if (this.item.value > 0) {
+        return "more";
+      }
+      if (this.item.value < 0) {
+        return "less";
+      } else {
+        return "";
+      }
+    },
   },
 
   methods: {
