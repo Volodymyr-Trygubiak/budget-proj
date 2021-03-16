@@ -11,11 +11,13 @@ import {
     Select,
     Option,
     Alert,
-    Dialog
+    Dialog,
+    ButtonGroup
 } from 'element-ui';
 
 const elements = [
     Button,
+    ButtonGroup,
     Card,
     Form,
     FormItem,
